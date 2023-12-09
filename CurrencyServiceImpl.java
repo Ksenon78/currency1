@@ -22,7 +22,9 @@ public class CurrencyServiceImpl implements CurrencyService {
         List<CurrencyEntity> allByPrivacyAndTimestampAndSource = currencyRepository.findAllByPrivacyAndTimestampAndSource(currencySource, currencyTime, currencyType);//TODO Hepsi gelirse
 
 
-        return null;
+      return allByPrivacyAndTimestampAndSource.stream()
+                .map(currencyResponseMapper::toResponse)
+                .collect(Collectors.toList());
     }
 
 
