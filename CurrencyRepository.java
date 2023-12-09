@@ -9,10 +9,4 @@ import java.util.List;
 public interface CurrencyRepository extends JpaRepository<CurrencyEntity, Integer> {
     List<CurrencyEntity> findAllByPrivacyAndTimestampAndSource(String privacy, Date timestamp, String source);
 
-    List<CurrencyEntity> findAllByTimestamp(Date timestamp);
-
-    List<CurrencyEntity> findAllBySource(String source);
-
-    List<CurrencyEntity> findAllByPrivacy(String privacy);
-
 }
