@@ -2,7 +2,6 @@ package currency.example.currency.outbondhandler;
 
 import currency.example.currency.entity.CurrencyEntity;
 import currency.example.currency.mapper.CurrencyMapper;
-import currency.example.currency.mapper.CurrencyResponseMapper;
 import currency.example.currency.repository.CurrencyRepository;
 import currency.example.currency.outbound.CurrencyApiResponse;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,17 +16,17 @@ import java.util.List;
 public class CurrencyHandlerService {
 
     private final CurrencyMapper currencyMapper;
-    private final CurrencyResponseMapper currencyResponseMapper;
+
     private final CurrencyRepository currencyRepository;
 
 
     @Value("${currencylayer.api.key}")
     private String apiKey;
 
-    public CurrencyHandlerService(CurrencyMapper currencyMapper, CurrencyRepository currencyRepository, CurrencyResponseMapper currencyResponseMapper) {
+    public CurrencyHandlerService(CurrencyMapper currencyMapper, CurrencyRepository currencyRepository) {
         this.currencyMapper = currencyMapper;
         this.currencyRepository = currencyRepository;
-        this.currencyResponseMapper = currencyResponseMapper;
+
     }
 
     @Scheduled(fixedRate = 100000)
