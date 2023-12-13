@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -19,9 +19,10 @@ public class CurrencyController {
     }
 
     @GetMapping("/currency/")
-    public List<CurrencyResponse> findAllCurrency(@RequestParam("currencyType") String currencyType,
+    public List<CurrencyResponse> getCurrency(@RequestParam("currencyType") String currencyType,
                                                   @RequestParam("currencySource") String currencySource,
-                                                  @RequestParam("currencyTime") Date currencyTime) {
+                                                  @RequestParam("currencyTime") LocalDate currencyTime) {
         return currencyService.findAllCurrency(currencyType, currencySource, currencyTime);
+
     }
 }
